@@ -1,0 +1,14 @@
+.pagination {
+  align-self: stretch;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3.5rem;
+
+  &__current {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: $color-main;
+    padding: 0.8rem 1.2rem;
+  }
+}

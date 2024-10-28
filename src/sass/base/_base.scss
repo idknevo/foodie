@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=DynaPuff:wght@400..700&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Oxanium:wght@200..800&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Exo 2", sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  background-image: $gradient;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $color-grey-dark-1;
+  min-height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  max-width: 120rem;
+  min-height: 100rem;
+  margin: 4vw auto;
+  box-shadow: 0 2rem 6rem rgba($color-grey-dark-1, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 10rem auto;
+}

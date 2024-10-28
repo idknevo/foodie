@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="src/imgs/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="src/css/style.css" />
+    <title>Foodie &ndash; recipe application</title>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="src/imgs/logo.png" alt="Foodie Logo" class="header__logo" />
+
+        <form action="#" class="search">
+          <input
+            type="text"
+            class="search__fiel"
+            placeholder="Search for a recipe ..."
+          />
+          <button class="btn search__btn">
+            <svg class="search__icon">
+              <use href="src/imgs/icons.svg#icon-search"></use>
+            </svg>
+            <span>Search</span>
+          </button>
+        </form>
+
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--add-recipe">
+                <svg class="nav__icon">
+                  <use href="src/imgs/icons.svg#icon-edit"></use>
+                </svg>
+                <span>Add recipe</span>
+              </button>
+            </li>
+            <li class="nav__item">
+              <button class="nav__btn nav__btn--bookmarks">
+                <svg class="nav__icon">
+                  <use href="src/imgs/icons.svg#icon-bookmark"></use>
+                </svg>
+                <span>Bookmarks</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <div class="search__results">
+        <ul class="results">
+          <li class="preview">
+            <a href="#23456" class="preview__link preview__link--active">
+              <figure class="preview__figure">
+                <img src="src/imgs/test.jpg" alt="test" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">
+                  Cauliflower Pizza Crust (with BBQ Chicken Pizza)
+                </h4>
+                <p class="preview__publisher">The pioneer woman</p>
+              </div>
+              <div class="preview__user-generated">
+                <svg>
+                  <use href="src/imgs/icons.svg#icon-user"></use>
+                </svg>
+              </div>
+            </a>
+          </li>
+          <li class="preview">
+            <a href="#23456" class="preview__link">
+              <figure class="preview__figure">
+                <img src="src/imgs/test.jpg" alt="test" />
+              </figure>
+              <div class="preview__data">
+                <h4 class="preview__title">Cauliflower Pizza Crust</h4>
+                <p class="preview__publisher">The pioneer woman</p>
+              </div>
+              <div class="preview__user-generated">
+                <svg>
+                  <use href="src/imgs/icons.svg#icon-user"></use>
+                </svg>
+              </div>
+            </a>
+          </li>
+        </ul>
+        <div class="pagination">
+          <button class="btn--inline pagination__btn--prev">
+            <svg class="pagination__icon">
+              <use href="src/imgs/icons.svg#icon-arrow-left"></use>
+            </svg>
+            <span>Page 1</span>
+          </button>
+
+          <span class="pagination__current">Page 2</span>
+
+          <button class="btn--inline pagination__btn--next">
+            <span>Page 3</span>
+            <svg class="pagination__icon">
+              <use href="src/imgs/icons.svg#icon-arrow-right"></use>
+            </svg>
+          </button>
+        </div>
+        <p class="copyright">
+          &copy; Copyright 2024 by
+          <a
+            href="https://www.linkedin.com/in/ahmed-abdelhafiez-8470702a4/?originalSubdomain=eg"
+            target="_blank"
+            class="copyright__link"
+            >NEVO</a
+          >
+        </p>
+      </div>
+      <div class="recipe">recipe ...</div>
+    </div>
+  </body>
+</html>

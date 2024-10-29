@@ -15,7 +15,7 @@
         <form action="#" class="search">
           <input
             type="text"
-            class="search__fiel"
+            class="search__field"
             placeholder="Search for a recipe ..."
           />
           <button class="btn search__btn">
@@ -111,7 +111,63 @@
           >
         </p>
       </div>
-      <div class="recipe">recipe ...</div>
+      <div class="recipe">
+        <figure class="recipe__figure">
+          <img src="src/imgs/test.jpg" alt="tomato" class="recipe__img" />
+          <figcaption>
+            <h1 class="recipe__title">
+              <span>pasta with cream tomato sauce</span>
+            </h1>
+          </figcaption>
+        </figure>
+
+        <div class="recipe__details">
+          <div class="recipe__info">
+            <svg class="recipe__info-icon">
+              <use href="src/imgs/icons.svg#icon-clock"></use>
+            </svg>
+            <div class="recipe__info-data">
+              <span class="recipe__info-number recipe__info-data--minutes"
+                >45</span
+              >
+              <span class="recipe__info-text">Minutes</span>
+            </div>
+          </div>
+          <div class="recipe__info">
+            <svg class="recipe__info-icon">
+              <use href="src/imgs/icons.svg#icon-users"></use>
+            </svg>
+            <div class="recipe__info-data">
+              <span class="recipe__info-number recipe__info-data--people"
+                >4</span
+              >
+              <span class="recipe__info-text">servings</span>
+            </div>
+          </div>
+          <div class="recipe__info-buttons">
+            <button class="btn--tiny btn--update-servings">
+              <svg>
+                <use href="src/imgs/icons.svg#icon-minus-circle"></use>
+              </svg>
+            </button>
+            <button class="btn--tiny btn--update-servings">
+              <svg>
+                <use href="src/imgs/icons.svg#icon-plus-circle"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="recipe__user">
+            <div class="recipe__user-generated">
+              <svg>
+                <use href="src/imgs/icons.svg#icon-user"></use>
+              </svg>
+            </div>
+            <button class="btn--round">
+              <svg><use href="src/imgs/icons.svg#icon-bookmark"></use></svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>

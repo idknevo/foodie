@@ -1,4 +1,89 @@
 .recipe {
   grid-column: 2 / 3;
-  background-color: orange;
+  background-color: $color-grey-light-1;
+  &__figure {
+    height: 32rem;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: $gradient;
+      opacity: 0.4;
+    }
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+  }
+  &__title {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 20%) skewY(-6deg);
+    color: #fff;
+    font-size: 3.25rem;
+    font-weight: 700;
+    line-height: 1.95;
+    z-index: 10;
+    text-align: center;
+    text-transform: uppercase;
+    width: 50%;
+    span {
+      background-image: $gradient;
+      padding: 1.3rem 2rem;
+      box-decoration-break: clone;
+    }
+  }
+
+  &__details {
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+    padding: 7.5rem 8rem 3.5rem;
+  }
+  &__info {
+    font-size: 1.65rem;
+    display: flex;
+    align-items: center;
+    gap: 1.15rem;
+  }
+  &__info-icon {
+    width: 2.35rem;
+    height: 2.35rem;
+    fill: $color-main;
+  }
+  &__info-buttons {
+    display: flex;
+    gap: 0.4rem;
+    margin-left: -2.5rem;
+    transform: translateY(1px);
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 1.75rem;
+  }
+  &__user-generated {
+    background-color: darken($color-grey-light-1, 2%);
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    svg {
+      width: 2.25rem;
+      height: 2.25rem;
+      fill: $color-main;
+    }
+  }
 }

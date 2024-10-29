@@ -17,7 +17,7 @@ body {
   font-family: "Exo 2", sans-serif;
   font-weight: 400;
   line-height: 1.6;
-  background-image: linear-gradient(to right bottom, #288b8a, #0b5858);
+  background-image: linear-gradient(to right top, #288b8a, #0b5858);
   background-size: cover;
   background-repeat: no-repeat;
   color: #615551;
@@ -38,7 +38,7 @@ body {
 }
 
 .btn {
-  background-image: linear-gradient(to right bottom, #288b8a, #0b5858);
+  background-image: linear-gradient(to right top, #288b8a, #0b5858);
   border-radius: 10rem;
   border: none;
   text-transform: uppercase;
@@ -50,7 +50,7 @@ body {
   transition: all 0.2s;
 }
 .btn:hover {
-  transform: scale(1.05);
+  background-image: linear-gradient(to left bottom, #288b8a, #0b5858);
 }
 .btn:focus {
   outline: none;
@@ -93,6 +93,55 @@ body {
 .btn--inline:hover {
   color: #0b5858;
   background-color: #f2efee;
+}
+
+.btn--tiny {
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.btn--tiny svg {
+  width: 100%;
+  height: 100%;
+  fill: #107e7d;
+  transition: all 0.3s;
+}
+.btn--tiny:focus {
+  outline: none;
+}
+.btn--tiny:hover svg {
+  transform: translateY(-1px);
+}
+.btn--tiny:active svg {
+  transform: translateY(0px);
+}
+
+.btn--round {
+  width: 4.5rem;
+  height: 4.5rem;
+  border: none;
+  background-image: linear-gradient(to right top, #288b8a, #0b5858);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+}
+.btn--round:focus {
+  border: none;
+}
+.btn--round:hover {
+  transform: scale(1.07);
+}
+.btn--round svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 2.5rem;
+  width: 2.5rem;
+  fill: #fff;
 }
 
 .pagination {
@@ -143,7 +192,7 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to right bottom, #288b8a, #0b5858);
+  background-image: linear-gradient(to right top, #288b8a, #0b5858);
   opacity: 0.3;
 }
 .preview__figure img {
@@ -218,7 +267,7 @@ body {
   transform: translateY(-2px);
   box-shadow: 0 0.7rem 3rem rgba(97, 85, 81, 0.08);
 }
-.search__fiel {
+.search__field {
   border: none;
   background: none;
   font-family: inherit;
@@ -226,10 +275,10 @@ body {
   font-size: 1.7rem;
   width: 30rem;
 }
-.search__fiel:focus {
+.search__field:focus {
   outline: none;
 }
-.search__fiel::placeholder {
+.search__field::placeholder {
   color: #d3c7c3;
 }
 
@@ -271,7 +320,90 @@ body {
 
 .recipe {
   grid-column: 2/3;
-  background-color: orange;
+  background-color: #f9f5f3;
+}
+.recipe__figure {
+  height: 32rem;
+  position: relative;
+}
+.recipe__figure::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right top, #288b8a, #0b5858);
+  opacity: 0.4;
+}
+.recipe__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+.recipe__title {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 20%) skewY(-6deg);
+  color: #fff;
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 1.95;
+  z-index: 10;
+  text-align: center;
+  text-transform: uppercase;
+  width: 50%;
+}
+.recipe__title span {
+  background-image: linear-gradient(to right top, #288b8a, #0b5858);
+  padding: 1.3rem 2rem;
+  box-decoration-break: clone;
+}
+.recipe__details {
+  display: flex;
+  align-items: center;
+  gap: 4.5rem;
+  padding: 7.5rem 8rem 3.5rem;
+}
+.recipe__info {
+  font-size: 1.65rem;
+  display: flex;
+  align-items: center;
+  gap: 1.15rem;
+}
+.recipe__info-icon {
+  width: 2.35rem;
+  height: 2.35rem;
+  fill: #107e7d;
+}
+.recipe__info-buttons {
+  display: flex;
+  gap: 0.4rem;
+  margin-left: -2.5rem;
+  transform: translateY(1px);
+}
+.recipe__user {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 1.75rem;
+}
+.recipe__user-generated {
+  background-color: rgb(245.6, 239.3333333333, 236.2);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+.recipe__user-generated svg {
+  width: 2.25rem;
+  height: 2.25rem;
+  fill: #107e7d;
 }
 
 .search__results {

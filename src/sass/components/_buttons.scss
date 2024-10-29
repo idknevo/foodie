@@ -34,6 +34,22 @@
   }
 }
 
+.btn--small {
+  &:link,
+  &:visited {
+    @extend %btn;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 1.25rem 2.25rem;
+  }
+  svg {
+    height: 1.75rem;
+    width: 1.75rem;
+    fill: currentColor;
+  }
+}
+
 .btn--inline {
   font-size: 1.3rem;
   font-weight: 600;

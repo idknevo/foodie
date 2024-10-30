@@ -57,10 +57,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  transition: all 0.2s;
+  transition: all 0.3s;
 }
 .btn--small:hover:link, .btn--small:hover:visited, .btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 .btn--small:active:link, .btn--small:active:visited, .btn:active {
   transform: translateY(0);
@@ -288,6 +288,99 @@ body {
   fill: #107e7d;
 }
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 20;
+  backdrop-filter: blur(5px);
+  transition: all 0.5s;
+}
+
+.add-recipe-window {
+  z-index: 9999;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100rem;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5rem 6rem;
+  box-shadow: 0 4rem 6rem rgba(0, 0, 0, 0.25);
+  transition: all 0.5s;
+}
+
+.btn__close-window {
+  color: #107e7d;
+  font-size: 3rem;
+  font-weight: 700;
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+.btn__close-window:focus {
+  outline: none;
+}
+
+.upload {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6rem;
+}
+.upload__heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.upload__column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.upload__field {
+  display: grid;
+  grid-template-columns: 1fr 2.8fr;
+  align-items: center;
+  gap: 1.5rem;
+}
+.upload__field label {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: inherit;
+}
+.upload__field input {
+  font-size: 1.5rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  transition: all 0.2s;
+}
+.upload__field input::placeholder {
+  color: #d3c7c3;
+}
+.upload__field input:focus {
+  outline: none;
+  border-color: #107e7d;
+  background-color: #f9f5f3;
+}
+.upload__btn {
+  grid-column: 1/-1;
+  justify-self: center;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
 .header {
   background-color: #f9f5f3;
   grid-column: 1/-1;
@@ -410,11 +503,15 @@ body {
   position: absolute;
   top: 2.5rem;
   right: 2.5rem;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  line-height: 1;
   color: #107e7d;
   cursor: pointer;
+  border: none;
+  background: none;
+}
+.bookmarks__close:focus {
+  outline: none;
 }
 
 .recipe {

@@ -7,11 +7,16 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   transition: all 0.2s;
 
   &:hover {
-    background-image: $gradient-2;
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 
   &:focus {

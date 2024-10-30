@@ -55,11 +55,15 @@ body {
   cursor: pointer;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   transition: all 0.2s;
 }
 .btn--small:hover:link, .btn--small:hover:visited, .btn:hover {
-  background-image: linear-gradient(to left bottom, #288b8a, #0b5858);
+  transform: translateY(-2px);
+}
+.btn--small:active:link, .btn--small:active:visited, .btn:active {
+  transform: translateY(0);
 }
 .btn--small:focus:link, .btn--small:focus:visited, .btn:focus {
   outline: none;
@@ -302,6 +306,15 @@ body {
 .search__field::placeholder {
   color: #d3c7c3;
 }
+.search__btn > * {
+  transition: all 0.3s;
+}
+.search__btn:hover {
+  transform: scale(1.05);
+}
+.search__btn:hover > * {
+  transform: scale(1.05);
+}
 
 .nav {
   align-self: stretch;
@@ -310,6 +323,9 @@ body {
   list-style: none;
   display: flex;
   height: 100%;
+}
+.nav__item {
+  position: relative;
 }
 .nav__btn {
   height: 100%;
@@ -337,6 +353,46 @@ body {
   width: 2.4rem;
   height: 2.4rem;
   fill: #107e7d;
+}
+
+.bookmarks {
+  position: absolute;
+  z-index: 9999;
+  background-color: #fff;
+  width: 40rem;
+  right: -2.5rem;
+  padding: 2rem 0 1rem;
+  border-radius: 0 0 0 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.5s;
+  transform: translateX(100%);
+}
+.bookmarks__list {
+  list-style: none;
+}
+.bookmarks .heading--2 {
+  margin-bottom: 1.5rem;
+}
+.bookmarks li {
+  border-bottom: none;
+}
+.bookmarks__open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+.bookmarks__close {
+  position: absolute;
+  top: 2.5rem;
+  right: 2.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #107e7d;
+  cursor: pointer;
 }
 
 .recipe {

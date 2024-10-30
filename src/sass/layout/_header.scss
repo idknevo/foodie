@@ -42,6 +42,17 @@
       color: $color-grey-light-3;
     }
   }
+  &__btn {
+    & > * {
+      transition: all 0.3s;
+    }
+    &:hover {
+      transform: scale(1.05);
+      & > * {
+        transform: scale(1.05);
+      }
+    }
+  }
 }
 
 .nav {
@@ -54,6 +65,7 @@
   }
 
   &__item {
+    position: relative;
   }
 
   &__btn {
@@ -85,5 +97,47 @@
     width: 2.4rem;
     height: 2.4rem;
     fill: $color-main;
+  }
+}
+
+.bookmarks {
+  position: absolute;
+  z-index: 9999;
+  background-color: #fff;
+  width: 40rem;
+  right: -2.5rem;
+  // bottom: 0;
+  padding: 2rem 0 1rem;
+  border-radius: 0 0 0 10px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.5s;
+  transform: translateX(100%);
+  &__list {
+    list-style: none;
+  }
+
+  .heading--2 {
+    margin-bottom: 1.5rem;
+  }
+  li {
+    border-bottom: none;
+  }
+  &__open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+  &__close {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    color: $color-main;
+    cursor: pointer;
   }
 }

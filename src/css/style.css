@@ -169,6 +169,28 @@ body {
   fill: #fff;
 }
 
+.message,
+.error {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 5rem 4rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.message svg,
+.error svg {
+  height: 3.2rem;
+  width: 3.2rem;
+  fill: #107e7d;
+}
+.message p,
+.error p {
+  font-size: 1.8rem;
+  line-height: 1.5;
+  font-weight: 600;
+}
+
 .pagination {
   align-self: stretch;
   margin-top: auto;

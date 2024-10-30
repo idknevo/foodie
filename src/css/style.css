@@ -198,7 +198,7 @@ body {
   justify-content: space-between;
   padding: 0 3.5rem;
 }
-.pagination__current {
+.pagination__total-pages {
   font-size: 1.3rem;
   font-weight: 600;
   color: #107e7d;

@@ -13,6 +13,7 @@
     "@parcel/transformer-sass": "^2.12.0",
     "autoprefixer": "^10.4.20",
     "core-js": "^3.39.0",
+    "fraction.js": "^5.1.0",
     "ldrs": "^1.0.2",
     "parcel": "^2.12.0",
     "postcss": "^8.4.47",

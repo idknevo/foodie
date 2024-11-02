@@ -1,31 +1,27 @@
 import icons from "url:../../imgs/icons.svg";
 import Fraction from "fraction.js";
-import { metronome } from "ldrs";
+import View from "./view.js";
 
-class RecipeView {
-  #parentElement = document.querySelector(".recipe");
-  #data;
+class RecipeView extends View {
+  _parentElement = document.querySelector(".recipe");
+  _message = `Start by searching for a recipe or ingredient. Have fun!`;
+  _errorMessage = `Couldn't find this recipe, try another one!`;
 
-  render(data) {
-    this.#data = data;
-    this.#clear();
-    const html = this.#generateHtml();
-    this.#parentElement.insertAdjacentHTML("afterbegin", html);
+  addHandlerRender(handler) {
+    ["hashchange", "load"].forEach((ev) => {
+      window.addEventListener(ev, handler);
+    });
   }
 
-  #clear() {
-    this.#parentElement.innerHTML = "";
-  }
-
-  #generateHtml() {
+  _generateHtml() {
     return `
         <figure class="recipe__figure">
-          <img src="${this.#data.image}" alt="${
-      this.#data.title
+          <img src="${this._data.image}" alt="${
+      this._data.title
     }" class="recipe__img" />
           <figcaption>
             <h1 class="recipe__title">
-              <span>${this.#data.title}</span>
+              <span>${this._data.title}</span>
             </h1>
           </figcaption>
         </figure>
@@ -37,7 +33,7 @@ class RecipeView {
             </svg>
             <div class="recipe__info-data">
               <span class="recipe__info-number recipe__info-data--minutes"
-                >${this.#data.cookingTime}</span
+                >${this._data.cookingTime}</span
               >
               <span class="recipe__info-text">Minutes</span>
             </div>
@@ -48,7 +44,7 @@ class RecipeView {
             </svg>
             <div class="recipe__info-data">
               <span class="recipe__info-number recipe__info-data--people"
-                >${this.#data.servings}</span
+                >${this._data.servings}</span
               >
               <span class="recipe__info-text">Servings</span>
             </div>
@@ -66,11 +62,6 @@ class RecipeView {
             </button>
           </div>
           <div class="recipe__user">
-            <div class="recipe__user-generated">
-              <svg>
-                <use href="${icons}#icon-user"></use>
-              </svg>
-            </div>
             <button class="btn--round">
               <svg><use href="${icons}#icon-bookmark"></use></svg>
             </button>
@@ -79,8 +70,8 @@ class RecipeView {
         <div class="recipe__ingredients">
           <h2 class="heading--2">Recipe ingredients</h2>
           <ul class="recipe__ingredients-list">
-          ${this.#data.ingredients
-            .map((ing) => this.#generateIngredientHtml(ing))
+          ${this._data.ingredients
+            .map((ing) => this._generateIngredientHtml(ing))
             .join("")}
           </ul>
         </div>
@@ -89,12 +80,12 @@ class RecipeView {
           <p class="recipe__directions-text">
             This recipe was carefully designed and tested by
             <span class="recipe__publisher">${
-              this.#data.publisher
+              this._data.publisher
             }</span>. Please
             check out directions at their website.
           </p>
           <a
-            href="${this.#data.src}"
+            href="${this._data.src}"
             class="btn--small recipe__btn"
             target="_blank"
           >
@@ -105,22 +96,7 @@ class RecipeView {
         `;
   }
 
-  renderSpinner() {
-    metronome.register();
-    const html = `
-        <div class="spinner">
-          <l-metronome
-            size="60"
-            stroke="5"
-            speed="1" 
-            color="#107e7d" 
-          ></l-metronome>
-        </div>`;
-    this.#clear();
-    this.#parentElement.insertAdjacentHTML("afterbegin", html);
-  }
-
-  #generateIngredientHtml(ing) {
+  _generateIngredientHtml(ing) {
     return `
             <li class="recipe__ingredient">
               <svg class="recipe__icon">

@@ -4,11 +4,23 @@
   display: flex;
   justify-content: space-between;
   padding: 0 3.5rem;
+  position: relative;
 
+  &__btn--next {
+    margin-left: auto;
+  }
+
+  &__btn--prev {
+    margin-right: auto;
+  }
   &__total-pages {
     font-size: 1.3rem;
     font-weight: 600;
     color: $color-main;
     padding: 0.8rem 1.2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }

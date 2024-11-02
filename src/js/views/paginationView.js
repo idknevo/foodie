@@ -17,6 +17,7 @@ class PaginationView extends View {
   _generateHtml() {
     // console.log(this._data);
     const currentPage = this._data.page;
+    const numOfResults = this._data.results.length;
     const numOfPages = Math.ceil(
       this._data.results.length / this._data.resultsPerPage
     );
@@ -25,7 +26,7 @@ class PaginationView extends View {
     // page 1 && there are other pages
     if (currentPage === 1 && numOfPages > 1) {
       return [
-        this._generatePagesCountHtml(numOfPages),
+        this._generatePagesCountHtml(numOfPages, numOfResults, currentPage),
         this._generateNextButtonHtml(currentPage),
       ].join("");
     }
@@ -34,13 +35,13 @@ class PaginationView extends View {
     if (currentPage === numOfPages && numOfPages > 1) {
       return [
         this._generatePreviousButtonHtml(currentPage),
-        this._generatePagesCountHtml(numOfPages),
+        this._generatePagesCountHtml(numOfPages, numOfResults, currentPage),
       ].join("");
     }
 
     // other page
     if (currentPage < numOfPages) {
-      return this._generateBothButtons(currentPage, numOfPages);
+      return this._generateBothButtons(currentPage, numOfPages, numOfResults);
     }
     // only one page
     return "";
@@ -72,14 +73,18 @@ class PaginationView extends View {
           `;
   }
 
-  _generatePagesCountHtml(numberOfPages) {
-    return `<span class="pagination__total-pages">${numberOfPages} pages</span>`;
+  _generatePagesCountHtml(numberOfPages, numberOfResults, curPage) {
+    return `
+          <div class="pagination__info">
+            <span class="pagination__current-page">page ${curPage}</span>
+            <span class="pagination__total-pages">${numberOfPages} pages / ${numberOfResults} results</span>
+          </div>`;
   }
 
-  _generateBothButtons(currentPage, numberOfPages) {
+  _generateBothButtons(currentPage, numberOfPages, numberOfResults) {
     return [
       this._generatePreviousButtonHtml(currentPage),
-      this._generatePagesCountHtml(numberOfPages),
+      this._generatePagesCountHtml(numberOfPages, numberOfResults, currentPage),
       this._generateNextButtonHtml(currentPage),
     ].join("");
   }

@@ -3,6 +3,7 @@ import recipeView from "./views/recipeView.js";
 import searchView from "./views/searchView.js";
 import resultsView from "./views/resultsView.js";
 import paginationView from "./views/paginationView.js";
+import bookmarksView from "./views/bookmarksView.js";
 import "../sass/main.scss";
 import "regenerator-runtime/runtime"; // polyfilling async/await
 import "core-js/stable"; // polyfilling everything else
@@ -20,6 +21,7 @@ const controlRecipes = async function () {
     recipeView.render(recipe);
     // update active recipe
     resultsView.update(model.getResultsPerPage());
+    bookmarksView.update(model.state.bookmarks);
     // console.log(recipe);
   } catch (err) {
     recipeView.renderError(err.message);
@@ -59,17 +61,22 @@ const controlServings = function (newServings) {
 };
 
 const controlAddbookmark = function () {
+  // add bookmars
   if (!model.state.recipe.bookmarked) {
     model.addBookmark(model.state.recipe);
   } else {
     model.deleteBookmark(model.state.recipe);
   }
+  // update recipe view
   // console.log(model.state.recipe);
   recipeView.update(model.state.recipe);
+  //render bookmarks view
+  bookmarksView.render(model.state.bookmarks);
 };
 
 const init = function () {
   recipeView.renderMessage();
+  bookmarksView.renderError();
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerBookmark(controlAddbookmark);

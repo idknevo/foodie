@@ -29,15 +29,18 @@ export default class View {
       // update changed text
       if (
         !newEl.isEqualNode(currEl) &&
+        newEl.firstChild?.nodeValue !== null &&
         newEl.firstChild?.nodeValue.trim() !== ""
-      )
+      ) {
         currEl.textContent = newEl.textContent;
+      }
 
       // update changed attributes
-      if (!newEl.isEqualNode(currEl))
+      if (!newEl.isEqualNode(currEl)) {
         Array.from(newEl.attributes).forEach((attr) => {
           currEl.setAttribute(attr.name, attr.value);
         });
+      }
     });
   }
 

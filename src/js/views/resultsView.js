@@ -12,9 +12,12 @@ class ResultsView extends View {
   }
 
   _generatePreviewHtml(result) {
+    const id = window.location.hash.slice(1);
     return `
           <li class="preview">
-            <a href="#${result.id}" class="preview__link">
+            <a href="#${result.id}" class="preview__link ${
+      result.id === id ? "preview__link--active" : ""
+    }">
               <figure class="preview__figure">
                 <img src="${result.image}" alt="${result.title}" />
               </figure>

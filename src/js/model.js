@@ -73,17 +73,42 @@ export const updateServings = function (newServings) {
   state.recipe.servings = newServings;
 };
 
+const saveBookmarks = function () {
+  localStorage.setItem("bookmarks", JSON.stringify(state.bookmarks));
+};
+
+export const updateBookmarks = function () {
+  const storageData = localStorage.getItem("bookmarks");
+  // console.log(JSON.parse(storageData));
+  if (storageData) state.bookmarks = JSON.parse(storageData);
+};
+
 export const addBookmark = function (recipe) {
   // add bookmark
   state.bookmarks.push(recipe);
+  // console.log(state.bookmarks);
   // mark recipe as bookmarked
   if (recipe.id === state.recipe.id) state.recipe.bookmarked = true;
+  // console.log(state.bookmarks);
+  saveBookmarks();
 };
 
 export const deleteBookmark = function (recipe) {
   // delete bookmark
-  const index = state.bookmarks.findIndex((rec) => (rec.id = recipe.id));
+  const index = state.bookmarks.findIndex((el) => el.id === recipe.id);
+  // console.log(state.bookmarks);
+  // console.log(index);
   state.bookmarks.splice(index, 1);
   // mark recipe as not bookmarked
   if (recipe.id === state.recipe.id) state.recipe.bookmarked = false;
+  // console.log(state.bookmarks);
+  saveBookmarks();
+};
+
+export const clearBookmarks = function () {
+  // localStorage.clear("bookmarks");
+  state.bookmarks.forEach((recipe) => (recipe.bookmarked = false));
+  state.bookmarks = [];
+  state.recipe.bookmarked = false;
+  saveBookmarks();
 };

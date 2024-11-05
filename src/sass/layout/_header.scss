@@ -116,7 +116,15 @@
   transform: translateX(100%);
   &__list {
     list-style: none;
+    margin-top: 2.5rem;
   }
+
+  // &__heading {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   padding: 0 2rem;
+  // }
 
   .heading--2 {
     margin-bottom: 1.5rem;
@@ -132,7 +140,7 @@
   }
   &__close {
     position: absolute;
-    top: 2.5rem;
+    top: 2rem;
     right: 2.5rem;
     font-size: 2.2rem;
     font-weight: 700;
@@ -140,6 +148,35 @@
     cursor: pointer;
     border: none;
     background: none;
+    transition: all 0.2s;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      transform: scale(1.2);
+    }
+    &:active {
+      transform: scale(1);
+    }
+  }
+  &__clear {
+    // border: none;
+    // background-image: $gradient;
+    position: absolute;
+    top: 2.3rem;
+    left: 2.5rem;
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10rem;
+    cursor: pointer;
+    font-size: 1.4rem;
+    transition: all 0.2s;
+    &:hover {
+      transform: translateY(-1px);
+    }
+    &:active {
+      transform: translateY(1px);
+    }
     &:focus {
       outline: none;
     }

@@ -86,7 +86,7 @@ class PaginationView extends View {
     return `
           <div class="pagination__info">
             <span class="pagination__current-page">page ${data.currPage}</span>
-            <span class="pagination__total-pages">${data.numPages} pages / ${data.numResults} results</span>
+            <span class="pagination__total-pages">${data.numResults} results / ${data.numPages} pages</span>
           </div>`;
   }
 

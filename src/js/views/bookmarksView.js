@@ -1,6 +1,5 @@
 import View from "./view";
 import preview from "./preview.js";
-import icons from "url:../../imgs/icons.svg";
 import preview from "./preview.js";
 
 class BookmarksView extends View {
@@ -8,6 +7,7 @@ class BookmarksView extends View {
   _bookmarks = document.querySelector(".bookmarks");
   _openBookmarksBtn = document.querySelector(".nav__btn--bookmarks");
   _closeBookmarksBtn = document.querySelector(".bookmarks__close");
+  _clearBookamrksBtn = document.querySelector(".bookmarks__clear");
 
   _errorMessage = "No bookmarks yet. Find a nice recipe and bookmark it :)";
 
@@ -15,6 +15,14 @@ class BookmarksView extends View {
     super();
     this._addHandlerShowBookmarks();
     this._addHandlerHideBookmarks();
+  }
+
+  addHandlerRender(handler) {
+    window.addEventListener("load", handler);
+  }
+
+  addHandlerClear(handler) {
+    this._clearBookamrksBtn.addEventListener("click", handler);
   }
 
   _addHandlerShowBookmarks() {

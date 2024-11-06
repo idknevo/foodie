@@ -1,12 +1,14 @@
+import "../sass/main.scss";
+import "regenerator-runtime/runtime"; // polyfilling async/await
+import "core-js/stable"; // polyfilling everything else
+
 import * as model from "./model.js";
 import recipeView from "./views/recipeView.js";
 import searchView from "./views/searchView.js";
 import resultsView from "./views/resultsView.js";
 import paginationView from "./views/paginationView.js";
 import bookmarksView from "./views/bookmarksView.js";
-import "../sass/main.scss";
-import "regenerator-runtime/runtime"; // polyfilling async/await
-import "core-js/stable"; // polyfilling everything else
+import addRecipe from "./views/addRecipe.js";
 
 const controlRecipes = async function () {
   try {
@@ -88,15 +90,20 @@ const controlClearBookmarks = function () {
   bookmarksView.update(model.state.bookmarks);
 };
 
+const controlUploadRecipe = function (newRecipe) {
+  console.log(newRecipe);
+};
+
 const init = function () {
-  bookmarksView.addHandlerRender(controlBookmarks);
-  bookmarksView.addHandlerClear(controlClearBookmarks);
   recipeView.renderMessage();
   bookmarksView.renderError();
+  bookmarksView.addHandlerRender(controlBookmarks);
+  bookmarksView.addHandlerClear(controlClearBookmarks);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerBookmark(controlAddbookmark);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
+  addRecipe.addHandlerUpload(controlUploadRecipe);
 };
 init();

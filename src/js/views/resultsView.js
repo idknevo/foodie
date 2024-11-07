@@ -3,7 +3,7 @@ import preview from "./preview.js";
 
 class ResultsView extends View {
   _parentElement = document.querySelector(".results");
-  _message = "";
+  _message = "Start by searching for a recipe or ingredient. Have fun!";
   _errorMessage = "No recipe found for your query! Please try again.";
 
   addHandlerClick(handler) {

@@ -64,6 +64,13 @@ const controlSearchResults = async function () {
   }
 };
 
+const controlResultsMessage = function () {
+  const mediaQuery = window.matchMedia("(max-width: 740px)");
+  if (mediaQuery.matches) {
+    resultsView.renderMessage();
+  }
+};
+
 const controlPagination = function (goToPage) {
   resultsView.render(model.getResultsPerPage(goToPage));
   paginationView.render(model.state.search);
@@ -134,6 +141,7 @@ const init = function () {
   recipeView.addHandlerBookmark(controlAddbookmark);
   recipeView.addHandlerCloseRecipe(controlCloseRecipe);
   resultsView.addHandlerClick(controlOpenRecipe);
+  controlResultsMessage();
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipe.addHandlerUpload(controlUploadRecipe);

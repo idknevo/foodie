@@ -45,11 +45,11 @@ const controlCloseRecipe = function () {
 
 const controlSearchResults = async function () {
   try {
-    resultsView.renderSpinner();
-
     // get search query
     const query = searchView.getQuery();
     if (!query) return;
+
+    resultsView.renderSpinner();
 
     // load search results for query
     await model.loadSearchResults(query);

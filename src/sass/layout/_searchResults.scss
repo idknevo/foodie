@@ -20,6 +20,10 @@
   font-size: 1.2rem;
   margin-top: 3.5rem;
 
+  @include media(bp-740px) {
+    font-size: 2rem;
+  }
+
   &__link {
     &:link,
     &:visited {

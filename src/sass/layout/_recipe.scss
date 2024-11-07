@@ -103,7 +103,7 @@
     padding: 7.5rem 8rem 3.5rem;
 
     @include media(bp-740px) {
-      padding: 5rem 5rem 3rem;
+      padding: 5rem 2.5rem 3rem;
     }
   }
 
@@ -159,6 +159,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include media(bp-740px) {
+      padding: 3rem 4rem;
+    }
   }
 
   &__ingredients-list {
@@ -167,6 +171,11 @@
     grid-template-columns: repeat(2, 1fr);
     column-gap: 3rem;
     row-gap: 2.5rem;
+
+    @include media(bp-740px) {
+      column-gap: 2.5rem;
+      row-gap: 2rem;
+    }
   }
 
   &__ingredient {
@@ -192,6 +201,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    @include media(bp-740px) {
+      padding: 3rem 4rem;
+    }
 
     &-text {
       font-size: 1.7rem;

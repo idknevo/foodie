@@ -22,6 +22,11 @@
   padding: 5rem 6rem;
   box-shadow: 0 4rem 6rem rgba(#000, 0.25);
   transition: all 0.5s;
+
+  @include media(bp-740px) {
+    width: 100%;
+    padding: 2rem 3rem;
+  }
 }
 
 .btn__close-window {
@@ -54,6 +59,11 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 6rem;
 
+  @include media(bp-740px) {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
   &__heading {
     font-size: 2.25rem;
     font-weight: 700;
@@ -73,10 +83,17 @@
     align-items: center;
     gap: 1.5rem;
 
+    @include media(bp-740px) {
+      grid-template-columns: 1fr;
+    }
+
     & label {
       font-size: 1.5rem;
       font-weight: 600;
       color: inherit;
+      @include media(bp-740px) {
+        display: none;
+      }
     }
 
     & input {
@@ -92,8 +109,15 @@
 
       &:focus {
         outline: none;
+      }
+
+      &:focus:valid {
         border-color: $color-main;
         background-color: $color-grey-light-1;
+      }
+
+      &:focus:invalid {
+        border-color: #f38e82;
       }
     }
   }

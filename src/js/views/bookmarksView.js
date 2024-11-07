@@ -51,10 +51,6 @@ class BookmarksView extends View {
       this._toggleBookmarks();
   }
 
-  // _hideBookmarks() {
-  //   this._bookmarks.classList.remove("bookmarks__open");
-  // }
-
   _generateHtml() {
     // console.log(this._data);
     return this._data

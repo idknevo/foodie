@@ -7,7 +7,7 @@ class ResultsView extends View {
   _errorMessage = "No recipe found for your query! Please try again.";
 
   _generateHtml() {
-    // console.log(this._data);
+    console.log(this._data);
     return this._data.map((result) => preview._generateHtml(result)).join("");
   }
 }

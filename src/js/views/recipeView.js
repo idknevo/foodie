@@ -1,6 +1,5 @@
 import icons from "url:../../imgs/icons.svg";
 import Fraction from "fraction.js";
-
 import View from "./view.js";
 
 class RecipeView extends View {
@@ -18,7 +17,6 @@ class RecipeView extends View {
     this._parentElement.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn--bookmark");
       if (!btn) return;
-      // console.log(btn);
       handler();
     });
   }
@@ -27,7 +25,6 @@ class RecipeView extends View {
     this._parentElement.addEventListener("click", (e) => {
       const btn = e.target.closest(".btn--update-servings");
       if (!btn) return;
-      // console.log(btn);
       const updateTo = +btn.dataset.updateTo;
       if (updateTo > 0) handler(updateTo);
     });
@@ -86,6 +83,16 @@ class RecipeView extends View {
             </button>
           </div>
           <div class="recipe__user">
+          ${
+            this._data.key
+              ? `
+            <div class="recipe__user-generated">
+              <svg>
+                <use href="${icons}#icon-user"></use>
+              </svg>
+            </div>`
+              : ""
+          }
             <button class="btn--round btn--bookmark">
               <svg><use href="${icons}#icon-bookmark${
       this._data.bookmarked ? "-fill" : ""

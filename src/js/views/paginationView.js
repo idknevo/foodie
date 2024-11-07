@@ -9,13 +9,11 @@ class PaginationView extends View {
       const btn = e.target.closest(".btn--inline");
       if (!btn) return;
       const goTo = +btn.dataset.goto;
-      // console.log(goTo);
       handler(goTo);
     });
   }
 
   _generateHtml() {
-    // console.log(this._data);
     const pages = {
       currPage: this._data.page,
       numResults: this._data.results.length,
@@ -23,14 +21,6 @@ class PaginationView extends View {
         this._data.results.length / this._data.resultsPerPage
       ),
     };
-    // console.log(pages);
-    // console.log(pages.currPage + 1);
-    // const currentPage = this._data.page;
-    // const numOfResults = this._data.results.length;
-    // const numOfPages = Math.ceil(
-    //   this._data.results.length / this._data.resultsPerPage
-    // );
-    // console.log(numOfPages);
 
     // page 1 && there are other pages
     if (pages.currPage === 1 && pages.numPages > 1) {
@@ -52,6 +42,7 @@ class PaginationView extends View {
     if (pages.currPage < pages.numPages) {
       return this._generateBothButtons(pages);
     }
+
     // only one page
     return "";
   }

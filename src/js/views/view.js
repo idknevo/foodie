@@ -21,8 +21,6 @@ export default class View {
       this._parentElement.querySelectorAll("*")
     );
     const newElements = Array.from(newDom.querySelectorAll("*"));
-    // console.log(currentElements);
-    // console.log(newElements);
     newElements.forEach((newEl, i) => {
       const currEl = currentElements[i];
 

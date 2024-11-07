@@ -1,6 +1,7 @@
 .recipe {
   grid-column: 2 / 3;
   background-color: $color-grey-light-1;
+
   &__figure {
     height: 32rem;
     position: relative;
@@ -16,12 +17,14 @@
       opacity: 0.4;
     }
   }
+
   &__img {
     width: 100%;
     height: 100%;
     display: block;
     object-fit: cover;
   }
+
   &__title {
     position: absolute;
     bottom: 0;
@@ -35,6 +38,7 @@
     text-align: center;
     text-transform: uppercase;
     width: 70%;
+
     span {
       background-image: $gradient;
       padding: 1.3rem 2rem;
@@ -48,29 +52,34 @@
     gap: 4.5rem;
     padding: 7.5rem 8rem 3.5rem;
   }
+
   &__info {
     font-size: 1.65rem;
     display: flex;
     align-items: center;
     gap: 1.15rem;
   }
+
   &__info-icon {
     width: 2.35rem;
     height: 2.35rem;
     fill: $color-main;
   }
+
   &__info-buttons {
     display: flex;
     gap: 0.4rem;
     margin-left: -2.5rem;
     transform: translateY(1px);
   }
+
   &__user {
     display: flex;
     align-items: center;
     margin-left: auto;
     gap: 1.75rem;
   }
+
   &__user-generated {
     background-color: darken($color-grey-light-1, 2%);
     width: 4rem;
@@ -80,12 +89,14 @@
     align-items: center;
     justify-content: center;
     margin-left: auto;
+
     svg {
       width: 2.25rem;
       height: 2.25rem;
       fill: $color-main;
     }
   }
+
   &__ingredients {
     background-color: $color-grey-light-2;
     padding: 5rem 8rem;
@@ -95,6 +106,7 @@
     flex-direction: column;
     align-items: center;
   }
+
   &__ingredients-list {
     list-style: none;
     display: grid;
@@ -102,9 +114,11 @@
     column-gap: 3rem;
     row-gap: 2.5rem;
   }
+
   &__ingredient {
     display: flex;
   }
+
   &__icon {
     width: 2rem;
     height: 2rem;
@@ -113,15 +127,18 @@
     margin-right: 1.1rem;
     margin-top: 0.3rem;
   }
+
   &__quantity {
     flex: none;
     margin-right: 0.5rem;
   }
+
   &__directions {
     padding: 5rem 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+
     &-text {
       font-size: 1.7rem;
       color: $color-grey-dark-2;
@@ -129,6 +146,7 @@
       margin-bottom: 3.5rem;
     }
   }
+
   &__publisher {
     font-weight: 700;
   }

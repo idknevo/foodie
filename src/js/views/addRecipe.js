@@ -7,6 +7,8 @@ class AddRecipe extends View {
   _btnOpen = document.querySelector(".nav__btn--add-recipe");
   _btnClose = document.querySelector(".btn__close-window");
 
+  _message = `Recipe is successfully uploaded :)`;
+
   constructor() {
     super();
     this._addHandlerOpenWindow();
@@ -23,27 +25,32 @@ class AddRecipe extends View {
   }
 
   _addHandlerOpenWindow() {
-    this._btnOpen.addEventListener("click", this._toggleWindow.bind(this));
+    this._btnOpen.addEventListener("click", this.openWindow.bind(this));
   }
 
   _addHandlerCloseWindow() {
-    this._btnClose.addEventListener("click", this._toggleWindow.bind(this));
-    this._overlay.addEventListener("click", this._toggleWindow.bind(this));
-    document.addEventListener("keydown", this._escToggleWindow.bind(this));
+    this._btnClose.addEventListener("click", this.closeWindow.bind(this));
+    this._overlay.addEventListener("click", this.closeWindow.bind(this));
+    document.addEventListener("keydown", this._escCloseWindow.bind(this));
   }
 
-  _toggleWindow() {
-    this._window.classList.toggle("hidden");
-    this._overlay.classList.toggle("hidden");
+  openWindow() {
+    this._window.classList.remove("hidden");
+    this._overlay.classList.remove("hidden");
   }
 
-  _escToggleWindow(e) {
+  closeWindow() {
+    this._window.classList.add("hidden");
+    this._overlay.classList.add("hidden");
+  }
+
+  _escCloseWindow(e) {
     if (
       e.key === "Escape" &&
       !this._window.classList.contains("hidden") &&
       !this._overlay.classList.contains("hidden")
     )
-      this._toggleWindow();
+      this.closeWindow();
   }
 }
 

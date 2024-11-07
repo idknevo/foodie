@@ -7,6 +7,22 @@ class RecipeView extends View {
   _message = `Start by searching for a recipe or ingredient. Have fun!`;
   _errorMessage = `Couldn't find this recipe, try another one!`;
 
+  openRecipe() {
+    this._parentElement.classList.add("recipe-open");
+  }
+
+  closeRecipe() {
+    this._parentElement.classList.remove("recipe-open");
+  }
+
+  addHandlerCloseRecipe(handler) {
+    this._parentElement.addEventListener("click", (e) => {
+      const btn = e.target.closest(".recipe__close");
+      if (!btn) return;
+      handler();
+    });
+  }
+
   addHandlerRender(handler) {
     ["hashchange", "load"].forEach((ev) => {
       window.addEventListener(ev, handler);
@@ -32,6 +48,7 @@ class RecipeView extends View {
 
   _generateHtml() {
     return `
+        <button class="recipe__close">&cross;</button>
         <figure class="recipe__figure">
           <img src="${this._data.image}" alt="${
       this._data.title

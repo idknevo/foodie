@@ -20,6 +20,14 @@ class BookmarksView extends View {
     window.addEventListener("load", handler);
   }
 
+  addHandlerClick(handler) {
+    this._parentElement.addEventListener("click", (e) => {
+      const preview = e.target.closest(".preview__link");
+      if (!preview) return;
+      handler();
+    });
+  }
+
   addHandlerClear(handler) {
     this._clearBookamrksBtn.addEventListener("click", handler);
   }
@@ -52,7 +60,6 @@ class BookmarksView extends View {
   }
 
   _generateHtml() {
-    // console.log(this._data);
     return this._data
       .map((bookmark) => preview._generateHtml(bookmark))
       .join("");

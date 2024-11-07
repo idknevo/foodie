@@ -12,6 +12,14 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   scroll-behavior: smooth;
+
+  @include media(bp-980px) {
+    font-size: 50%;
+  }
+
+  @include media(bp-800px) {
+    font-size: 43.75%;
+  }
 }
 
 body {
@@ -33,7 +41,20 @@ body {
   min-height: 120rem;
   margin: 4vw auto;
   box-shadow: 0 2rem 6rem rgba($color-grey-dark-1, 0.2);
+
   display: grid;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 10rem auto;
+
+  @include media(bp-1250px) {
+    max-width: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  @include media(bp-740px) {
+    grid-template-columns: 1fr;
+    grid-template-rows: 15rem auto;
+    position: relative;
+  }
 }

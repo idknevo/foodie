@@ -7,6 +7,11 @@
   justify-content: space-between;
   align-items: center;
 
+  @include media(bp-740px) {
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+
   &__logo {
     height: 4rem;
     display: block;
@@ -21,6 +26,12 @@
   transition: all 0.3s;
   padding-left: 3rem;
 
+  @include media(bp-740px) {
+    width: 100%;
+    order: 1;
+    margin-top: 2rem;
+  }
+
   &:focus-within {
     transform: translateY(-2px);
     box-shadow: 0 0.7rem 3rem rgba($color-grey-dark-1, 0.08);
@@ -34,6 +45,10 @@
     font-size: 1.7rem;
     width: 30rem;
 
+    @include media(bp-740px) {
+      width: 100%;
+    }
+
     &:focus {
       outline: none;
     }
@@ -46,6 +61,10 @@
   &__btn {
     & > * {
       transition: all 0.3s;
+    }
+
+    @include media(bp-740px) {
+      align-self: stretch;
     }
 
     &:hover {
@@ -109,7 +128,6 @@
   background-color: #fff;
   width: 40rem;
   right: -2.5rem;
-  // bottom: 0;
   padding: 2rem 0 1rem;
   border-radius: 0 0 0 10px;
   opacity: 0;
@@ -117,6 +135,10 @@
   pointer-events: none;
   transition: all 0.5s;
   transform: translateX(100%);
+
+  @include media(bp-740px) {
+    top: 13rem;
+  }
 
   &__list {
     list-style: none;

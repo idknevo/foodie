@@ -30,6 +30,19 @@ const controlRecipes = async function () {
   }
 };
 
+const controlOpenRecipe = function () {
+  const mediaQuery = window.matchMedia("(max-width: 740px)");
+  if (mediaQuery.matches) {
+    recipeView.openRecipe();
+  } else {
+    recipeView.closeRecipe();
+  }
+};
+
+const controlCloseRecipe = function () {
+  recipeView.closeRecipe();
+};
+
 const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
@@ -115,9 +128,12 @@ const init = function () {
   bookmarksView.renderError();
   bookmarksView.addHandlerRender(controlBookmarks);
   bookmarksView.addHandlerClear(controlClearBookmarks);
+  bookmarksView.addHandlerClick(controlOpenRecipe);
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerBookmark(controlAddbookmark);
+  recipeView.addHandlerCloseRecipe(controlCloseRecipe);
+  resultsView.addHandlerClick(controlOpenRecipe);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipe.addHandlerUpload(controlUploadRecipe);

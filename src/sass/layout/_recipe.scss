@@ -1,6 +1,56 @@
 .recipe {
   grid-column: 2 / 3;
   background-color: $color-grey-light-1;
+  position: relative;
+
+  @include media(bp-740px) {
+    position: absolute;
+    grid-column: 1/-1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+    z-index: 9999;
+  }
+
+  &__close {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    z-index: 100;
+    border: none;
+    background-image: $gradient;
+    color: #fff;
+    font-size: 3rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2rem 4rem rgba(#000, 0.35);
+    visibility: hidden;
+    pointer-events: none;
+
+    @include media(bp-740px) {
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0px);
+    }
+  }
 
   &__figure {
     height: 32rem;
@@ -51,6 +101,10 @@
     align-items: center;
     gap: 4.5rem;
     padding: 7.5rem 8rem 3.5rem;
+
+    @include media(bp-740px) {
+      padding: 5rem 10rem 3rem;
+    }
   }
 
   &__info {
@@ -150,4 +204,10 @@
   &__publisher {
     font-weight: 700;
   }
+}
+
+.recipe-open {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
 }
